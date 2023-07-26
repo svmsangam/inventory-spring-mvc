@@ -122,12 +122,15 @@ public class SubscriberController {
 
 			/* current user checking start */
 			InvUserDTO currentUser = AuthenticationUtil.getCurrentUser(userApi);
-
+			String password = subscriberDTO.getPassword();
 			/* current user checking end */
 
 			subscriberDTO.setCreatedById(currentUser.getUserId());
 
 			subscriberDTO = subscriberApi.save(subscriberDTO);
+
+			mailApi.sendHtmlMail(StringConstants.VerificationMainSender, subscriberDTO.getEmail(),
+					getAccountCreatedMsg(subscriberDTO.getUsername(),password),"subscriber created");
 
 		} catch (Exception e) {
 			LoggerUtil.logException(this.getClass(), e);
@@ -249,6 +252,15 @@ public class SubscriberController {
 
 		msg = "dear " + subscribername + " " + serviceName + " service is successfull renewed and will be expire on "
 				+ expireOn + " now your are able to manage " + totalStore + " stores thank you";
+
+		return msg;
+	}
+	private String getAccountCreatedMsg(String username, String password) {
+
+		String msg = "";
+
+		msg = "Dear " + username + ", your email have been registered to makalu-inventory with "
+				+"username: "+username+" password: "+password;
 
 		return msg;
 	}
