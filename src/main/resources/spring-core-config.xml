@@ -30,7 +30,7 @@
         <property name="idleTimeout" value="30000"/>
         <property name="dataSourceProperties">
             <props>
-                <prop key="url">jdbc:mysql://localhost:3306/inventory?verifyServerCertificate=false&amp;useSSL=false</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/inventory?verifyServerCertificate=false&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</prop>
                 <prop key="user">root</prop>
                 <prop key="password">root</prop>
                 <prop key="prepStmtCacheSize">250</prop>
