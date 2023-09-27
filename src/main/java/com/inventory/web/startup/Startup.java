@@ -262,6 +262,7 @@ public class Startup {
         serviceInfo.setRate(rate);
         serviceInfo.setStatus(Status.ACTIVE);
         serviceInfo.setTotalStore(totalStore);
+        serviceInfo.setTotalOrder(1000);
 
         serviceRepository.save(serviceInfo);
     }

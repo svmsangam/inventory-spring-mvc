@@ -4,6 +4,7 @@ apply plugin: 'eclipse-wtp'
 repositories {
     jcenter()
     mavenCentral()
+    maven {url="https://jaspersoft.jfrog.io/jaspersoft/jaspersoft-repo"}
 }
 
 //1. exclude commons-logging
