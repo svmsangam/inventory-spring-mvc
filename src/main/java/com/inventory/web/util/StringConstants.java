@@ -5,6 +5,7 @@ public class StringConstants {
     public static final String VerificationMainSender = "testappmailservice49@gmail.com";
     public static final String Server_url = "www.pasalya.com";
     public static final String Local_url = "http://localhost:8080";
+    public static final String PREDICTION_URL = "http://localhost:5000/abc_analysis_prediction";
 
     public static String PAGE_LAST = "lastpage";
     public static String PAGE_CURRENT = "currentpage";

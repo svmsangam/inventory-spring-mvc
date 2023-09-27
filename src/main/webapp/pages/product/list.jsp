@@ -11,7 +11,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="/pages/parts/header.jsp"%>
 <%@include file="/pages/parts/sidebar.jsp"%>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
@@ -78,8 +77,17 @@
 													<td>${product.stockInfo.inStock}</td>
 													<td><a
 														href="${pageContext.request.contextPath}/product/edit?productId=${product.productId}"
-														class="btn btn-danger"><i class="fa fa-edit"></i> edit
+														class="btn btn-danger"><i class="fa fa-edit"></i> Edit
 													</a></td>
+													<td>
+														<button
+															url="${pageContext.request.contextPath}/prediction/result"
+															class="btn btn-primary predictStock"><i class="fa fa-info"></i> Predict Stock
+														</button>
+														<input type="hidden" class="productId" value="${product.productId}">
+														<input type="hidden" class="productCategory" value="${product.subCategoryInfo.name}">
+														<input type="hidden" class="productName" value="${product.name}">
+													</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -138,6 +146,6 @@
 		</div>
 	</section>
 </div>
-
 <%@include file="/pages/parts/footer.jsp"%>
+<script src="${pageContext.request.contextPath}/resources/js/asset/app/stockpredict.js"></script>
 
